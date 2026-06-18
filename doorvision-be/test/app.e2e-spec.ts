@@ -4,7 +4,7 @@ import request from 'supertest';
 import { App } from 'supertest/types';
 import { AppModule } from './../src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('AluminumSystems (e2e)', () => {
   let app: INestApplication<App>;
 
   beforeEach(async () => {
@@ -16,11 +16,26 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/aluminum-systems (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/aluminum-systems')
       .expect(200)
-      .expect('Hello World!');
+      .expect([
+        {
+          id: 1,
+          name: 'Xingfa hệ 55',
+          brand: 'Xingfa',
+          code: 'XINGFA_55',
+          status: 'active',
+        },
+        {
+          id: 2,
+          name: 'Xingfa hệ 93',
+          brand: 'Xingfa',
+          code: 'XINGFA_93',
+          status: 'active',
+        },
+      ]);
   });
 
   afterEach(async () => {

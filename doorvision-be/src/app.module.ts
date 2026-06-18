@@ -1,10 +1,7 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AluminumSystemsModule } from './modules/aluminum-systems/aluminum-systems.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [AluminumSystemsModule],
 })
 export class AppModule {}

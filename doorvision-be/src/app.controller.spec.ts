@@ -1,22 +1,24 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AluminumSystemsController } from './modules/aluminum-systems/aluminum-systems.controller';
+import { AluminumSystemsService } from './modules/aluminum-systems/aluminum-systems.service';
 
-describe('AppController', () => {
-  let appController: AppController;
+describe('AluminumSystemsController', () => {
+  let controller: AluminumSystemsController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
+      controllers: [AluminumSystemsController],
+      providers: [AluminumSystemsService],
     }).compile();
 
-    appController = app.get<AppController>(AppController);
+    controller = app.get<AluminumSystemsController>(AluminumSystemsController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+  describe('findAll', () => {
+    it('should return list of aluminum systems', () => {
+      const result = controller.findAll();
+      expect(result).toHaveLength(2);
+      expect(result[0]).toHaveProperty('name', 'Xingfa hệ 55');
     });
   });
 });
