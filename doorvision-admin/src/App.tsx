@@ -1,6 +1,6 @@
 import { ConfigProvider } from 'antd';
 import AdminLayout from './components/layout/AdminLayout';
-import AluminumSystemsPage from './pages/materials/AluminumSystemsPage';
+import DashboardPage from './pages/dashboard/DashboardPage';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       }}
     >
       <AdminLayout>
-        <AluminumSystemsPage />
+        <DashboardPage />
       </AdminLayout>
     </ConfigProvider>
   );
